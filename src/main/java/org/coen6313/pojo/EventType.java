@@ -3,7 +3,7 @@ package org.coen6313.pojo;
 public enum EventType {
     REGISTER("REGISTER"),
     LOGIN("LOGIN"),
-    CLICK("CLICK"),
+    CHAT("CHAT"),
     VIEW("VIEW"),
     PURCHASE("PURCHASE"),
     LOGOUT("LOGOUT");
