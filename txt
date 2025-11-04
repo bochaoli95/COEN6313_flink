@@ -1,5 +1,18 @@
-sudo apt update
-sudo apt install openjdk-17-jdk -y
-java -version
-docker images | grep flink
-docker network create flink-net
+docker stop jobmanager taskmanager
+docker rm jobmanager taskmanager
+
+docker run -d \
+  --name jobmanager \
+  --network flink-net \
+  -p 8081:8081 \
+  -p 6123:6123 \
+  -e FLINK_PROPERTIES="jobmanager.rpc.address: jobmanager" \
+  flink:1.18.1-scala_2.12-java17 jobmanager
+
+
+docker run -d \
+  --name taskmanager \
+  --network flink-net \
+  -e FLINK_PROPERTIES="jobmanager.rpc.address: jobmanager
+taskmanager.numberOfTaskSlots: 2" \
+  flink:1.18.1-scala_2.12-java17 taskmanager
