@@ -47,7 +47,10 @@ public class Engine {
                     System.out.println("[Pattern Matched] " + patternMap);
                     Event registerEvent = patternMap.get("register").iterator().next();
                     String userId = registerEvent.getUserId();
-                    return "User " + userId + " registered but no chat within 5s.";
+                    return String.format(
+                            "{ \"event\": \"inactive_warning\", \"user_id\": \"%s\", \"message\": \"User inactive after register\" }",
+                            userId
+                    );
                 });
 
         result.print("CEP Output");

@@ -16,3 +16,11 @@ docker run -d \
   -e FLINK_PROPERTIES="jobmanager.rpc.address: jobmanager
 taskmanager.numberOfTaskSlots: 2" \
   flink:1.18.1-scala_2.12-java17 taskmanager
+
+
+    {
+      "userId": "user1",
+      "eventType": "REGISTER",
+      "timestamp": 1730835600000,
+      "eventDetail": "user1 register"
+    }
