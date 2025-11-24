@@ -26,6 +26,6 @@ public class UserInactiveRule {
                         return EventType.CHAT.getValue().equals(event.getEventType());
                     }
                 })
-                .within(Time.seconds(10));
+                .within(Time.seconds(20));
     }
 }
